@@ -1,0 +1,7 @@
+.movies{
+    justify-content: space-around;
+    flex-wrap: wrap;
+    background: aquamarine;
+    align-items: stretch;
+    flex-direction:row;
+}
