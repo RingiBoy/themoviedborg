@@ -1,7 +1,13 @@
 .movies{
-    justify-content: space-around;
+    justify-content: center;
     flex-wrap: wrap;
-    background: aquamarine;
+    /*background: aquamarine;*/
     align-items: stretch;
-    flex-direction:row;
+    /*flex-direction:row;*/
+    display: flex;
+    margin-top:20px;
+    width: 850px;
+
+
+
 }

@@ -6,7 +6,8 @@ const urls ={
 
     movies:'/discover/movie?api_key=7252238ff770ba83b38c3f3f1642c219',
     genres:'/genre/movie/list?api_key=7252238ff770ba83b38c3f3f1642c219',
-    search:`/search/keyword?api_key=7252238ff770ba83b38c3f3f1642c219&query=`
+    search:'/search/movie?api_key=7252238ff770ba83b38c3f3f1642c219&query=',
+
 }
 
 // https://api.themoviedb.org/3/discover/movie?page=2&api_key=7252238ff770ba83b38c3f3f1642c219
@@ -16,3 +17,6 @@ const urls ={
 
 export default baseURL
 export {urls}
+
+
+// https://api.themoviedb.org/3/search/movie?api_key=252238ff770ba83b38c3f3f1642c219&query=Jack+Reacher

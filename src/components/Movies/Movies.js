@@ -5,17 +5,17 @@ import {movieActions} from "../../redux/slices/movie.slice";
 import css from "./Movies.module.css"
 
 const Movies = () => {
-    const {movies, status}=useSelector(state => state.movies)
-const dispatch= useDispatch()
+    const {movies, status} = useSelector(state => state.movies)
+    const dispatch = useDispatch()
 
-    useEffect(()=>{
-dispatch(movieActions.getAll())
-},[])
+    useEffect(() => {
+        dispatch(movieActions.getAll())
+    }, [])
 
     return (
         <div className={css.movies}>
-            {status&&<h1>{status}</h1>}
-            {movies.map(movie=> <Movie key={movie.id} movie={movie}/>)}
+            {/*{status && <h1>{status}</h1> }*/}
+            {movies.map(movie => <Movie key={movie.id} movie={movie}/>)}
         </div>
     );
 };

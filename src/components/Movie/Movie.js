@@ -1,14 +1,16 @@
 import React from 'react';
 
+import css from "./Movie.module.css"
+
 const Movie = ({movie:{original_title, release_date, vote_average, backdrop_path}}) => {
     return (
-        <div>
+        <div className={css.movie}>
 
 
-            <img src={`https://www.themoviedb.org/t/p/w220_and_h330_face${backdrop_path}`}/>
-            <p>{original_title}</p>-
+            <img className={css.image} src={`https://www.themoviedb.org/t/p/w220_and_h330_face${backdrop_path}`}/>
+            <p className={css.nameFilm}>{original_title}</p>
             <p>{release_date}</p>
-            vote_average:{vote_average}
+            <p>{vote_average}</p>
 
 
         </div>

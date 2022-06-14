@@ -1,7 +1,21 @@
-.movies{
-    justify-content: space-around;
-    flex-wrap: wrap;
-    background: aquamarine;
-    align-items: stretch;
-    flex-direction:row;
+.movie{
+    width: 170px;
+    text-align: center;
+    border: 1px solid #ddd;
+
+}
+
+.image{
+    border-radius: 8px;
+    width: 150px;
+    text-align: center;
+
+
+}
+.nameFilm{
+    width: 170px;
+    border: 1px solid #ddd;
+    text-align: center;
+
+
 }

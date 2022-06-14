@@ -11,10 +11,10 @@ const SearchForm = () => {
 
     const submit = async ({searchText}) => {
 
-        console.log(searchText);
-        const textToPlus = await searchText.trim().replace(" ", "+");
-        await console.log(textToPlus);
-        await dispatch(movieActions.searchFilm({text: textToPlus}))
+
+        const formatText = await searchText.trim().replaceAll(" ", "+");
+        await console.log('formatText',formatText);
+        await dispatch(movieActions.searchFilm(formatText))
         reset()
     }
 
@@ -22,6 +22,7 @@ const SearchForm = () => {
         <form onSubmit={handleSubmit(submit)}>
             <div>
                 <lable>search<input type="text" {...register('searchText')}/></lable>
+
             </div>
 
         </form>
