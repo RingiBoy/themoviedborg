@@ -1,8 +1,9 @@
 import React from 'react';
 
 import css from "./Movie.module.css"
+import {Link} from "react-router-dom";
 
-const Movie = ({movie:{original_title, release_date, vote_average, backdrop_path}}) => {
+const Movie = ({movie:{original_title, release_date, vote_average, backdrop_path, id}}) => {
     return (
         <div className={css.movie}>
 
@@ -11,7 +12,7 @@ const Movie = ({movie:{original_title, release_date, vote_average, backdrop_path
             <p className={css.nameFilm}>{original_title}</p>
             <p>{release_date}</p>
             <p>{vote_average}</p>
-
+            <Link to={id.toString()}>get Details</Link>
 
         </div>
     );

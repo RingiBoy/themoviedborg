@@ -5,7 +5,8 @@ import {movieService} from "../../services/movie.service";
 const initialState = {
     movies:[],
     status:null,
-    genres:[]
+    genres:[],
+    movie:{}
 };
 
 const getAll = createAsyncThunk(
@@ -31,10 +32,20 @@ const getAllGenres= createAsyncThunk(
     'allGenres',
     async ()=>{
         const {data} = await movieService.getAllGenres();
-        console.log('genres', data);
+
         return data
     }
-)
+);
+const getSingleMovie = createAsyncThunk(
+    'getSingleMovie',
+    async(id)=>{
+
+        const {data} =  await movieService.getById(id);
+        console.log('singleFilm:', data);
+
+        return data
+    }
+);
 
 
 const movieSlice = createSlice({
@@ -48,7 +59,7 @@ const movieSlice = createSlice({
 
         },
         [getAll.fulfilled]:(state, action)=>{
-            console.log(action.payload);
+
             state.movies= action.payload.results
             state.status= 'update'
 
@@ -73,6 +84,16 @@ const movieSlice = createSlice({
         [getAllGenres.rejected]:(state)=>{
             state.status= 'error'
 
+        },
+        [getSingleMovie.fulfilled]:(state, action)=>{
+
+            state.movie= action.payload
+
+
+        },
+        [getSingleMovie.rejected]:(state)=>{
+            state.status= 'error'
+
         }
     }
 })
@@ -83,7 +104,8 @@ const {reducer:movieReducer, actions}=movieSlice;
 const movieActions={
     getAll,
     searchFilm,
-    getAllGenres
+    getAllGenres,
+    getSingleMovie
 }
 
 export {
