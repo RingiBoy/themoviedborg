@@ -10,6 +10,9 @@ const urls ={
     movieId:'/movie'
 
 }
+//жанры:  https://api.themoviedb.org/3/discover/movie?api_key=7252238ff770ba83b38c3f3f1642c219&with_genres=12%2C14%2C28
+
+
 
 // https://api.themoviedb.org/3/discover/movie?page=2&api_key=7252238ff770ba83b38c3f3f1642c219
 // https://api.themoviedb.org/3/movie/648579/lists?api_key=7252238ff770ba83b38c3f3f1642c219&language=en-US

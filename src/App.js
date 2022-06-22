@@ -9,6 +9,7 @@ import MainLayout from "./layouts/MainLayout/MainLayout";
 import AboutPage from "./pages/AboutPage/AboutPage";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 import SingleMovie from "./components/SingleMovie/SingleMovie";
+import Genre from "./components/Genre/Genre";
 
 
 const App = () => {
@@ -19,10 +20,8 @@ const App = () => {
 
             <Route path={'/'} element={<MainLayout/>}>
                 <Route index element={<Navigate to={'movies'}/>}/>
-
-                <Route path={'movies'} element={<Movies/>}>
-                    <Route path={':id'} element={<SingleMovie/>}/>
-                </Route>
+                <Route path={'movies'} element={<Movies/>}/>
+                <Route path={'movies/:id'} element={<SingleMovie/>}/>
                 <Route path={'about'} element={<AboutPage/>}/>
                 <Route path={'*'} element={<NotFoundPage/>}/>
             </Route>

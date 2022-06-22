@@ -5,4 +5,8 @@
 .genresMovies{
     display: flex;
 
+
+}
+.genresList{
+    margin:20px;
 }
