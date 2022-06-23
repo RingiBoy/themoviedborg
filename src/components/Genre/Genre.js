@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link, useLocation, useNavigate} from "react-router-dom";
+import { useLocation, useNavigate} from "react-router-dom";
 import css from './Genre.module.css'
 
 const Genre = ({genre:{id, name}}) => {
@@ -11,10 +11,11 @@ const Genre = ({genre:{id, name}}) => {
 
 
     return (
-        <div className={css.genres}>
+        <div className={css.genres }>
 
 
-            <button className={css.buttonGenre} onClick={goMovies}>{name}</button>
+            <button className={`btn btn-outline-success ${css.buttonGenre}`} onClick={goMovies}>{name}</button>
+            {/* <button className={css.buttonGenre} onClick={goMovies}>{name}</button> */}
             {/*<Link to={goMovies}>{name}</Link>*/}
             {/*<Link to={`moviesssss`}>{name}</Link>*/}
             {/*<a href=''>Movies</a>*/}
