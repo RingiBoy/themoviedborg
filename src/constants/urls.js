@@ -7,10 +7,12 @@ const urls ={
     movies:'/discover/movie?api_key=7252238ff770ba83b38c3f3f1642c219',
     genres:'/genre/movie/list?api_key=7252238ff770ba83b38c3f3f1642c219',
     search:'/search/movie?api_key=7252238ff770ba83b38c3f3f1642c219&query=',
-    movieId:'/movie'
+    movieId:'/movie',
+    withGenres:'/discover/movie?api_key=7252238ff770ba83b38c3f3f1642c219&with_genres='
 
 }
-//жанры:  https://api.themoviedb.org/3/discover/movie?api_key=7252238ff770ba83b38c3f3f1642c219&with_genres=12%2C14%2C28
+//жанры:
+// https://api.themoviedb.org/3/discover/movie?api_key=7252238ff770ba83b38c3f3f1642c219&with_genres=12%2C14%2C28
 
 
 

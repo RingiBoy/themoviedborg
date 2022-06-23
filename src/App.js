@@ -22,6 +22,9 @@ const App = () => {
                 <Route index element={<Navigate to={'movies'}/>}/>
                 <Route path={'movies'} element={<Movies/>}/>
                 <Route path={'movies/:id'} element={<SingleMovie/>}/>
+                <Route path={'movies/genre/:id'} element={<Movies/>}/>
+
+
                 <Route path={'about'} element={<AboutPage/>}/>
                 <Route path={'*'} element={<NotFoundPage/>}/>
             </Route>

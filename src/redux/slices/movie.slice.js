@@ -47,6 +47,17 @@ const getSingleMovie = createAsyncThunk(
     }
 );
 
+const getMoviesWithGenre = createAsyncThunk(
+    'getMoviesWithGenre',
+    async(id)=>{
+
+        const {data} =  await movieService.getMovieWithGenre(id);
+        console.log('moviesWithGenre:', data);
+
+        return data
+    }
+);
+
 
 const movieSlice = createSlice({
     name:'movieSlice',
@@ -94,6 +105,16 @@ const movieSlice = createSlice({
         [getSingleMovie.rejected]:(state)=>{
             state.status= 'error'
 
+        },
+        [getMoviesWithGenre.fulfilled]:(state, action)=>{
+
+            state.movie= action.payload
+
+
+        },
+        [getMoviesWithGenre.rejected]:(state)=>{
+            state.status= 'error'
+
         }
     }
 })
@@ -105,7 +126,8 @@ const movieActions={
     getAll,
     searchFilm,
     getAllGenres,
-    getSingleMovie
+    getSingleMovie,
+    getMoviesWithGenre
 }
 
 export {
