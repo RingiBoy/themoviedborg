@@ -2,7 +2,13 @@ import {axiosService} from "./axios.service";
 import {urls} from "../constants/urls";
 
 const movieService = {
-    getAll:()=>axiosService.get(urls.movies),
+    getAll:(page, language='uk-ua')=>axiosService.get(urls.movies, {
+        params:{
+            language,
+            page
+
+
+    }}),
     getAllGenres:()=>axiosService.get(urls.genres),
     search:(text)=>axiosService.get(`${urls.search}${text}`),
     getById:(id)=>axiosService.get(`${urls.movieId}/${id}?api_key=7252238ff770ba83b38c3f3f1642c219`),
