@@ -5,7 +5,7 @@ import css from './Genre.module.css'
 const Genre = ({genre:{id, name}}) => {
     const navigate = useNavigate()
     const location = useLocation()
-    console.log(useLocation())
+    // console.log(useLocation())
     //onClick реализовать, по нажатию
     const goMovies = ()=>navigate(`/movies/genre/${id}`,{replace:true})
 

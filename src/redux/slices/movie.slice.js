@@ -6,13 +6,16 @@ const initialState = {
     movies:[],
     status:null,
     genres:[],
-    movie:{}
+    movie:{},
+    page:null
 };
 
 const getAll = createAsyncThunk(
     'movieSlice/getAll',
-    async ()=>{
-        const {data} = await movieService.getAll();
+    async (page)=>{
+        const {data} = await movieService.getAll(page);
+        console.log('moviesAll', data);
+
         return data
     }
 );
@@ -22,7 +25,7 @@ const searchFilm = createAsyncThunk(
     async(textForm)=>{
 
         const {data} =  await movieService.search(textForm);
-        console.log('searchData', data);
+        // console.log('searchData', data);
 
         return data
     }
@@ -41,7 +44,7 @@ const getSingleMovie = createAsyncThunk(
     async(id)=>{
 
         const {data} =  await movieService.getById(id);
-        console.log('singleFilm:', data);
+        // console.log('singleFilm:', data);
 
         return data
     }
@@ -52,7 +55,7 @@ const getMoviesWithGenre = createAsyncThunk(
     async(id)=>{
 
         const {data} =  await movieService.getMovieWithGenre(id);
-        console.log('moviesWithGenre:', data);
+        // console.log('moviesWithGenre:', data);
 
         return data
     }
@@ -78,7 +81,7 @@ const movieSlice = createSlice({
             state.status= 'error'
         },
         [searchFilm.fulfilled]:(state, action)=>{
-            console.log('searchArray', action.payload.results);
+            // console.log('searchArray', action.payload.results);
             state.movies= action.payload.results
             state.status= 'update'
         },

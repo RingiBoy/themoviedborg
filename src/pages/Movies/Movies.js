@@ -10,7 +10,7 @@ const Movies = () => {
     const {movies, status} = useSelector(state => state.movies)
     const dispatch = useDispatch()
     
-    const [query, setQuery]= useSearchParams({page:'5'})
+    const [query, setQuery]= useSearchParams({page:'1'})
 
     useEffect(() => {
         dispatch(movieActions.getAll(query.get('page')))
@@ -20,6 +20,7 @@ const Movies = () => {
         let page = query.get('page');
         page =+page+1
         setQuery({page:page.toString()})
+
     }
 
     return (
@@ -27,7 +28,7 @@ const Movies = () => {
             {/*{status && <h1>{status}</h1> }*/}
             {/*{params && <h1>{params}</h1>}*/}
             <div><Outlet/></div>
-            <button onClick={()=>nextPage()}>page</button>
+            <button onClick={()=>nextPage()}> page:  {query.get('page')}</button>
             <div className={css.movies}>{movies.map(movie => <Movie key={movie.id} movie={movie}/>)}</div>
             
         </div>
