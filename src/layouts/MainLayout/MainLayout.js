@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink, Outlet, useNavigate} from "react-router-dom";
 import Genres from "../../components/Genres/Genres";
 import css from "./MainLayout.module.css"
+import SearchForm from "../../components/SearchForm/SearchForm";
 
 const MainLayout = () => {
     const navigate = useNavigate();
@@ -19,6 +20,7 @@ const MainLayout = () => {
                 <div className={css.buttonn}>
                     <button className={`btn btn-outline-primary `}  onClick={()=>navigate(-1)}>prev</button>
                     <button  className={`btn btn-outline-primary `} onClick={()=>navigate(+1)}>next</button>
+                    <SearchForm/>
                 </div>
 
             </div>

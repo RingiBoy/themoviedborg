@@ -22,9 +22,9 @@ const getAll = createAsyncThunk(
 
 const searchFilm = createAsyncThunk(
     'searchFilm',
-    async(textForm)=>{
+    async(textForm, page)=>{
 
-        const {data} =  await movieService.search(textForm);
+        const {data} =  await movieService.search(textForm, page);
         // console.log('searchData', data);
 
         return data

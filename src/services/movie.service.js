@@ -10,7 +10,14 @@ const movieService = {
 
     }}),
     getAllGenres:()=>axiosService.get(urls.genres),
-    search:(text)=>axiosService.get(`${urls.search}${text}`),
+    // search:(text)=>axiosService.get(`${urls.search}${text}`),
+    search:(query, page)=>axiosService.get(urls.search,{
+        params:{
+            page,
+            query
+
+        }
+    }),
     getById:(id, language)=>axiosService.get(`${urls.movieId}/${id}?api_key=7252238ff770ba83b38c3f3f1642c219`,{
         params:{
             language
