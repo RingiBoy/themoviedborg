@@ -8,20 +8,24 @@ import {useNavigate, useSearchParams} from "react-router-dom";
 
 const SearchForm = () => {
     const {reset, register, handleSubmit} = useForm();
-    const dispatch = useDispatch()
+    // const dispatch = useDispatch()
     const navigate = useNavigate()
 
 
-    const [query, setQuery] = useSearchParams()
+    // const [query, setQuery] = useSearchParams()
     const submit = async ({searchText}) => {
 
-        const queryObj = await Object.fromEntries(query.entries())
-        const formatSearchText = await searchText.trim().replaceAll(" ", "+");
 
-        await navigate('/search')
-        await dispatch(movieActions.searchFilm(formatSearchText));
-        await console.log('queryObj',queryObj);
-        await setQuery(queryObj)
+        const formatSearchText = searchText.trim().replaceAll(" ", "+");
+        await navigate(`/search?page=1&query=${formatSearchText}`)
+        // const queryObj =  Object.fromEntries(query.entries())
+
+        // await dispatch(movieActions.searchFilm(formatSearchText));
+        // await console.log('queryObj',queryObj.page);
+        // await console.log('queryObj',queryObj.query);
+        // await console.log('formatSearchText',formatSearchText);
+        // await setQuery(queryObj)
+
         // await console.log('navigate to search');
         // await console.log('query param:',formatSearchText);
 

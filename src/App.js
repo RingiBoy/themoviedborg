@@ -22,6 +22,7 @@ const App = () => {
             <Route path={'/'} element={<MainLayout/>}>
                 <Route index element={<Navigate to={'movies'}/>}/>
                 <Route path={'search'} element={<Search/>}/>
+                <Route path={'search/:id'} element={<SingleMovie/>}/>
                 <Route path={'movies'} element={<Movies/>}/>
                 <Route path={'movies/:id'} element={<SingleMovie/>}/>
                 <Route path={'movies/genre/:id'} element={<Movies/>}/>

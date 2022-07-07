@@ -5,6 +5,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {movieActions} from "../../redux/slices/movie.slice";
 import css from "./SingleMovie.module.css"
 import Genre from "../Genre/Genre";
+import Stars from "../Stars/Stars";
 
 
 const SingleMovie = () => {
@@ -31,7 +32,7 @@ const SingleMovie = () => {
                     <div>
                         <span>Release Date: {movie.release_date}</span>
                         {movie.genres&&<span className={css.genresMap}>Genres List:{movie.genres.map(genre => <Genre key={genre.id} genre={genre}/>)}</span>}
-                        <span>User Score: {movie.vote_average}</span>
+                        <span>User Score: <Stars vote_average={movie.vote_average}/></span>
 
 
                     </div>

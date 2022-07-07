@@ -40,7 +40,7 @@ const Movies = () => {
             {/*<button onClick={() => prevPage()}> prev: {query.get('page')}</button>*/}
             <button onClick={() => prevPage()}> prev</button>
             <button onClick={() => nextPage()}> next</button>
-            <div className={css.movies}>{movies.map(movie => <Movie key={movie.id} movie={movie}/>
+            <div className={css.movies}>{movies.map(movie => (<Movie key={movie.id} movie={movie}/>)
             )}</div>
 
         </div>

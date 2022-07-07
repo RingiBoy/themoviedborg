@@ -22,10 +22,12 @@ const getAll = createAsyncThunk(
 
 const searchFilm = createAsyncThunk(
     'searchFilm',
-    async(textForm, page)=>{
+    async({query, page})=>{
 
-        const {data} =  await movieService.search(textForm, page);
-        // console.log('searchData', data);
+        const {data} =  await movieService.search(query, page );
+        console.log('searchData', data);
+        console.log('page', page);
+        console.log('query', query);
 
         return data
     }
