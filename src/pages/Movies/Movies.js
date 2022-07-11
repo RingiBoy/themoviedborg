@@ -10,25 +10,30 @@ const Movies = () => {
     const {movies, status} = useSelector(state => state.movies)
     const dispatch = useDispatch()
 
-    const [query, setQuery] = useSearchParams({page: '1'})
+    const [params, setParams] = useSearchParams({page: '1'})
+    const page = params.get('page')
+    const genre = params.get('genre')
+
+    // const [query, setQuery] = useSearchParams({page: '1'})
 
     useEffect(() => {
-        dispatch(movieActions.getAll(query.get('page')))
-    }, [query])
+        dispatch(movieActions.getAll({page, genre}))
+
+    }, [params])
 
     const nextPage = () => {
         // let page = query.get('page');
         // page =+page+1
-        const queryObj = Object.fromEntries(query.entries())
-        queryObj.page++
-        setQuery(queryObj)
+        const paramObj = Object.fromEntries(params.entries())
+        paramObj.page++
+        setParams(paramObj)
     }
 
     const prevPage = () => {
-        const queryObj = Object.fromEntries(query.entries())
-        if (queryObj.page && queryObj.page !== '1') {
-            queryObj.page--
-            setQuery(queryObj)
+        const paramObj = Object.fromEntries(params.entries())
+        if (paramObj.page && paramObj.page !== '1') {
+            paramObj.page--
+            setParams(paramObj)
         }
     }
 

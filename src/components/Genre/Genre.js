@@ -7,7 +7,11 @@ const Genre = ({genre:{id, name}}) => {
     // const location = useLocation()
     // console.log(useLocation())
     //onClick реализовать, по нажатию
-    const goMovies = ()=>navigate(`/movies/genre/${id}`,{replace:true})
+    const goMovies = ()=> {
+        navigate(`/movies?page=1&genre=${id}`, {replace: true})
+        // await navigate(`/search?page=1&query=${formatSearchText}`)
+
+    }
 
 
     return (

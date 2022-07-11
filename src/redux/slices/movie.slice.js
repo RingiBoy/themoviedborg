@@ -7,14 +7,17 @@ const initialState = {
     status:null,
     genres:[],
     movie:{},
-    page:null
+    page:null,
+    genre:null,
 };
 
 const getAll = createAsyncThunk(
     'movieSlice/getAll',
-    async (page)=>{
-        const {data} = await movieService.getAll(page);
+    async ({page, genre})=>{
+        const {data} = await movieService.getAll(page,genre);
         console.log('moviesAll', data);
+        console.log('genre', genre);
+        console.log('page', page);
 
         return data
     }

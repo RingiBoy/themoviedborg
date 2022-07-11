@@ -2,10 +2,11 @@ import {axiosService} from "./axios.service";
 import {urls} from "../constants/urls";
 
 const movieService = {
-    getAll:(page, language)=>axiosService.get(urls.movies, {
+    getAll:(page,with_genres, language,)=>axiosService.get(urls.movies, {
         params:{
             language,
-            page
+            page,
+            with_genres
 
 
     }}),
