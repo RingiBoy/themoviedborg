@@ -20,15 +20,15 @@ const Search = () => {
     }, [params])
 
 
-
     const nextPage = () => {
         // let page = query.get('page');
         // page =+page+1
         const paramsObj = Object.fromEntries(params.entries())
-        paramsObj.page++
-        console.log('query',paramsObj.query);
-        console.log('page',paramsObj.page);
-        setParams(paramsObj)
+
+        if (paramsObj.page && paramsObj.page <= '500') {
+            paramsObj.page++
+            setParams(paramsObj)
+        }
     }
 
     const prevPage = () => {

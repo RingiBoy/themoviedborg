@@ -1,34 +1,60 @@
-.main{
+.main {
     height: 600px;
     width: 850px;
     margin-top: 20px;
     display: flex;
-    /* margin:20px; */
+
+    /*background: darkslategray;*/
+    /*color: antiquewhite;*/
+
 
 }
 
-.img{
+.mainDark {
+    height: 600px;
+    width: 900px;
+    margin-top: 20px;
+    display: flex;
+    background: darkslategray;
+    color: antiquewhite;
+}
+
+.img {
     width: 300px;
     height: 450px;
     border-radius: 8px;
-    margin-right:10px;
+    margin-right: 10px;
 }
 
-.main h1{
+.main h1 {
     margin: 0px;
 }
 
-.main span{
+.main span {
     text-align: center;
 }
 
-.description{
+.description {
     display: flex;
     flex-direction: column;
     margin-left: 10px;
+    width: 550px;
 }
 
-.genresMap{
+.genresMap {
     display: flex;
-    margin-right:2px;
+
+    width: 580px;
+    height: auto;
+    flex-wrap: wrap;
+    padding: 5px;
+    gap: 10px;
+
+
+}
+
+.genreBox {
+
+    height: 500px;
+    display: flex;
 }

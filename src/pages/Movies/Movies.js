@@ -24,9 +24,12 @@ const Movies = () => {
     const nextPage = () => {
         // let page = query.get('page');
         // page =+page+1
-        const paramObj = Object.fromEntries(params.entries())
-        paramObj.page++
-        setParams(paramObj)
+        const paramsObj = Object.fromEntries(params.entries())
+
+        if (paramsObj.page && paramsObj.page < '500') {
+            paramsObj.page++
+            setParams(paramsObj)
+        }
     }
 
     const prevPage = () => {

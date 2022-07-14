@@ -2,7 +2,9 @@
     display: flex;
     flex-direction: column;
     height: 50px;
-    align-content:stretch
+    align-content:stretch;
+    /*background-color: lightblue;*/
+
 }
 .link{
     text-align: center;
