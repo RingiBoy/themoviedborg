@@ -9,6 +9,7 @@ const initialState = {
     movie:{},
     page:null,
     genre:null,
+    totalPages:null
 };
 
 const getAll = createAsyncThunk(
@@ -89,6 +90,8 @@ const movieSlice = createSlice({
             // console.log('searchArray', action.payload.results);
             state.movies= action.payload.results
             state.status= 'update'
+            state.totalPages = action.payload.total_pages;
+
         },
         [searchFilm.rejected]:(state)=>{
             state.status= 'error'

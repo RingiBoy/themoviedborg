@@ -18,6 +18,7 @@ const Movies = () => {
     // const [query, setQuery] = useSearchParams({page: '1'})
 
     useEffect(() => {
+
         dispatch(movieActions.getAll({page, genre}))
 
     }, [params])
@@ -27,7 +28,7 @@ const Movies = () => {
         // page =+page+1
         const paramsObj = Object.fromEntries(params.entries())
 
-        if (paramsObj.page && paramsObj.page !== '500') {
+        if (paramsObj.page && movies&& paramsObj.page !== '500') {
             paramsObj.page++
             setParams(paramsObj)
         }
@@ -43,9 +44,7 @@ const Movies = () => {
 
     return (
         <div>
-            {/*date status: <h1>{status}</h1>*/}
 
-            {/*<div><Outlet/></div>*/}
 
             <div className={css.buttonPagination}>
                 <Button className={'page-item'} onClick={() => prevPage()}> {`<<`} </Button>
