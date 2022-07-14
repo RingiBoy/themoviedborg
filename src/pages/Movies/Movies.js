@@ -5,6 +5,7 @@ import {movieActions} from "../../redux/slices/movie.slice";
 
 import css from "./Movies.module.css"
 import {Outlet, useSearchParams} from "react-router-dom";
+import {Button} from "react-bootstrap";
 
 const Movies = () => {
     const {movies, status} = useSelector(state => state.movies)
@@ -26,7 +27,7 @@ const Movies = () => {
         // page =+page+1
         const paramsObj = Object.fromEntries(params.entries())
 
-        if (paramsObj.page && paramsObj.page < '500') {
+        if (paramsObj.page && paramsObj.page !== '500') {
             paramsObj.page++
             setParams(paramsObj)
         }
@@ -42,12 +43,16 @@ const Movies = () => {
 
     return (
         <div>
-            {/*{status && <h1>{status}</h1> }*/}
-            {/*{params && <h1>{params}</h1>}*/}
-            <div><Outlet/></div>
-            {/*<button onClick={() => prevPage()}> prev: {query.get('page')}</button>*/}
-            <button onClick={() => prevPage()}> prev</button>
-            <button onClick={() => nextPage()}> next</button>
+            {/*date status: <h1>{status}</h1>*/}
+
+            {/*<div><Outlet/></div>*/}
+
+            <div className={css.buttonPagination}>
+                <Button className={'page-item'} onClick={() => prevPage()}> {`<<`} </Button>
+                <h5 className={'page-item disabled'}>  Page:  {page}</h5>
+                <Button className={'page-item'} onClick={() => nextPage()}> {`>>`}</Button>
+
+            </div>
             <div className={css.movies}>{movies.map(movie => (<Movie key={movie.id} movie={movie}/>)
             )}</div>
 

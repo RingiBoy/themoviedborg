@@ -3,6 +3,8 @@ import {useForm} from "react-hook-form";
 import {useDispatch} from "react-redux";
 import {movieActions} from "../../redux/slices/movie.slice";
 import {useNavigate, useSearchParams} from "react-router-dom";
+import css from'./SearchForm.module.css'
+
 
 
 
@@ -34,9 +36,9 @@ const SearchForm = () => {
     }
 
     return (
-        <form onSubmit={handleSubmit(submit)}>
-            <div>
-                <lable>search <input type="text" {...register('searchText')}/></lable>
+        <form className={css.form} onSubmit={handleSubmit(submit)}>
+            <div className={css.inputForm}>
+                <label className={'input-group-text'}>Search:  <input className={'form-control'} type="text" placeholder={'Type to search...'} {...register('searchText')}/></label>
 
             </div>
 

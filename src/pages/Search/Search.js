@@ -4,6 +4,7 @@ import {Outlet, useSearchParams} from "react-router-dom";
 import {movieActions} from "../../redux/slices/movie.slice";
 import css from "../Movies/Movies.module.css";
 import Movie from "../../components/Movie/Movie";
+import {Button} from "react-bootstrap";
 
 
 const Search = () => {
@@ -25,7 +26,7 @@ const Search = () => {
         // page =+page+1
         const paramsObj = Object.fromEntries(params.entries())
 
-        if (paramsObj.page && paramsObj.page <= '500') {
+        if (paramsObj.page && paramsObj.page !== '500') {
             paramsObj.page++
             setParams(paramsObj)
         }
@@ -42,9 +43,13 @@ const Search = () => {
     return (
         <div>
             <div><Outlet/></div>
+            <div className={css.buttonPagination}>
+                <Button className={'page-item'} onClick={() => prevPage()}> {`<<`} </Button>
+                <h5 className={'page-item disabled'}>  Page:  {page}</h5>
+                <Button className={'page-item'} onClick={() => nextPage()}> {`>>`}</Button>
 
-            <button onClick={() => prevPage()}> prev</button>
-            <button onClick={() => nextPage()}> next</button>
+            </div>
+
             <div className={css.movies}>{movies.map(movie => <Movie key={movie.id} movie={movie}/>
             )}</div>
         </div>
