@@ -24,8 +24,9 @@ const movieService = {
         params: {
             language
         }
-    }),
-    getMovieWithGenre: (id) => axiosService.get(`${urls.withGenres}/${id}`)
+    })
+    // ,
+    // getMovieWithGenre: (id) => axiosService.get(`${urls.withGenres}/${id}`)
 }
 
 

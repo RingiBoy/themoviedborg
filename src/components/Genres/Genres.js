@@ -1,4 +1,5 @@
 import React, {useEffect} from 'react';
+
 import {useDispatch, useSelector} from "react-redux";
 import {movieActions} from "../../redux/slices/movie.slice";
 import Genre from "../Genre/Genre";
@@ -17,7 +18,6 @@ const Genres = () => {
     return (
         <div>
             {genres.map(genre => <Genre key={genre.id} genre={genre}/>)}
-           
         </div>
     );
 };

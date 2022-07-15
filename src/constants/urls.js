@@ -8,8 +8,9 @@ const urls ={
     genres:'/genre/movie/list?api_key=7252238ff770ba83b38c3f3f1642c219',
     // search:'/search/movie?api_key=7252238ff770ba83b38c3f3f1642c219&query=',
     search:'/search/movie?api_key=7252238ff770ba83b38c3f3f1642c219',
-    movieId:'/movie',
-    withGenres:'/discover/movie?api_key=7252238ff770ba83b38c3f3f1642c219&with_genres='
+    movieId:'/movie'
+    // ,
+    // withGenres:'/discover/movie?api_key=7252238ff770ba83b38c3f3f1642c219&with_genres='
 
 }
 //жанры:

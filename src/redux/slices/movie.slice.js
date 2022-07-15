@@ -7,9 +7,10 @@ const initialState = {
     status:null,
     genres:[],
     movie:{},
-    page:null,
+    // page:null,
     genre:null,
-    totalPages:null
+    totalPages:null,
+    checked:'false',
 };
 
 const getAll = createAsyncThunk(
@@ -72,41 +73,41 @@ const movieSlice = createSlice({
     name:'movieSlice',
     initialState,
     reducers:{
+        changeToggle:(state,)=>{
+            state.checked = action.payload
+            console.log('state.checked',state.checked);
+        }
     },
     extraReducers:{
-        [getAll.pending]:(state, action)=>{
-            state.status= 'loading'
 
+        [getAll.pending]:(state)=>{
+            state.status= 'loading'
         },
         [getAll.fulfilled]:(state, action)=>{
 
             state.movies= action.payload.results
             state.status= 'update'
-
         },[getAll.rejected]:(state)=>{
             state.status= 'error'
         },
+
         [searchFilm.fulfilled]:(state, action)=>{
             // console.log('searchArray', action.payload.results);
             state.movies= action.payload.results
             state.status= 'update'
             state.totalPages = action.payload.total_pages;
-
         },
         [searchFilm.rejected]:(state)=>{
             state.status= 'error'
-
         },
+
         [getAllGenres.fulfilled]:(state, action)=>{
-
             state.genres= action.payload.genres
-
-
         },
         [getAllGenres.rejected]:(state)=>{
             state.status= 'error'
-
         },
+
         [getSingleMovie.fulfilled]:(state, action)=>{
 
             state.movie= action.payload
@@ -116,17 +117,8 @@ const movieSlice = createSlice({
         [getSingleMovie.rejected]:(state)=>{
             state.status= 'error'
 
-        },
-        [getMoviesWithGenre.fulfilled]:(state, action)=>{
-
-            state.movie= action.payload
-
-
-        },
-        [getMoviesWithGenre.rejected]:(state)=>{
-            state.status= 'error'
-
         }
+
     }
 })
 
@@ -139,9 +131,13 @@ const movieActions={
     getAllGenres,
     getSingleMovie,
     getMoviesWithGenre
+
+
+
 }
 
 export {
     movieReducer,
-    movieActions
+    movieActions,
+    actions
 }

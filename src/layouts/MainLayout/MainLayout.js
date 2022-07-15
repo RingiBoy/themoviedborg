@@ -1,26 +1,42 @@
 import React from 'react';
-import {NavLink, Outlet, useNavigate} from "react-router-dom";
+import {NavLink, Outlet} from "react-router-dom";
 import Genres from "../../components/Genres/Genres";
 import css from "./MainLayout.module.css"
 import SearchForm from "../../components/SearchForm/SearchForm";
+import {useDispatch, useSelector} from "react-redux";
 
 const MainLayout = () => {
-    const navigate = useNavigate();
+
+
+    const {checked} = useSelector(state => state.movies)
+    const dispatch = useDispatch()
     return (
+
+
         <div className={css.mainLayout}>
-
             <div>
-                <div className={css.link}>
+                <div className={css.topLink}>
+                    <div className={css.link}>
+                        <NavLink className={'nav-link'} to={"/movies"}>Movies</NavLink>
+                        <NavLink className={'nav-link'} to={"/tv"}>TV</NavLink>
+                        <NavLink className={'nav-link'} to={"/about"}>About us</NavLink>
+                    </div>
+                    <div className={css.checkbox}>
+                        <b>DARKMODE:</b>
 
-                    <NavLink className={'nav-link'} to={"/movies"}>Movies</NavLink>
-                    <NavLink className={'nav-link'} to={"/tv"}>TV</NavLink>
-                    <NavLink className={'nav-link'} to={"/about"}>About us</NavLink>
-                    {/*<div className={css.buttonn}>*/}
-                    {/*<div className={'pagination'}>*/}
-                    {/*    <button className={`btn btn-outline-primary `} onClick={() => navigate(-1)}>prev</button>*/}
-                    {/*    <button className={`btn btn-outline-primary `} onClick={() => navigate(+1)}>next</button>*/}
+                        <input
+                            type="checkbox"
+                            checked={false}
+                            // onChange={() =>dispatch()}
+                        />
+                        <img src="https://static.thenounproject.com/png/1664849-200.png" alt=""/>
 
-                    {/*</div>*/}
+                    </div>
+                    <div className={css.user}>
+                        <b>@RINGIBOY</b>
+                        <img src="https://static.thenounproject.com/png/3806453-200.png" alt=""/>
+                    </div>
+
 
                 </div>
                 <SearchForm/>
