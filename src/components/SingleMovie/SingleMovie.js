@@ -29,11 +29,7 @@ const SingleMovie = () => {
 
         <div className={(checked ? darkTheme : lightTheme)}>
 
-
-            {/*{id}*/}
-            {/*{movie.homepage}*/}
-            {/*{movie.release_date}*/}
-
+           
             <img className={css.img} src={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2${movie.poster_path}`}/>
             <div className={css.description}>
                 <div>
