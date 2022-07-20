@@ -8,6 +8,21 @@
     margin-top:20px;
 
 }
+.moviesDark{
+    justify-content: center;
+    flex-wrap: wrap;
+    /*background: aquamarine;*/
+    align-items: stretch;
+    /*flex-direction:row;*/
+    display: flex;
+    margin-top:20px;
+    background: darkslategray;
+    color: antiquewhite;
+}
+
+
+
+
 .buttonPagination{
     text-align: center;
     display: flex;

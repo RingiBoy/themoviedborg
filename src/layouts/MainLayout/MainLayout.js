@@ -4,6 +4,8 @@ import Genres from "../../components/Genres/Genres";
 import css from "./MainLayout.module.css"
 import SearchForm from "../../components/SearchForm/SearchForm";
 import {useDispatch, useSelector} from "react-redux";
+import {movieActions} from "../../redux/slices/movie.slice";
+
 
 const MainLayout = () => {
 
@@ -18,7 +20,7 @@ const MainLayout = () => {
                 <div className={css.topLink}>
                     <div className={css.link}>
                         <NavLink className={'nav-link'} to={"/movies"}>Movies</NavLink>
-                        <NavLink className={'nav-link'} to={"/tv"}>TV</NavLink>
+
                         <NavLink className={'nav-link'} to={"/about"}>About us</NavLink>
                     </div>
                     <div className={css.checkbox}>
@@ -26,8 +28,12 @@ const MainLayout = () => {
 
                         <input
                             type="checkbox"
-                            checked={false}
-                            // onChange={() =>dispatch()}
+                            checked={checked}
+                            onChange={() => {
+                                dispatch(movieActions.changeToggle(!checked))
+
+
+                            }}
                         />
                         <img src="https://static.thenounproject.com/png/1664849-200.png" alt=""/>
 

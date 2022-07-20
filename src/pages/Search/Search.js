@@ -9,7 +9,7 @@ import {Button} from "react-bootstrap";
 
 const Search = () => {
 
-    const {movies, totalPages} = useSelector(state => state.movies)
+    const {movies, totalPages, checked} = useSelector(state => state.movies)
 
 
     const dispatch = useDispatch();
@@ -43,7 +43,8 @@ const Search = () => {
             setParams(paramsObj)
         }
     }
-
+    const lightTheme = css.movies;
+    const darkTheme = css.moviesDark;
     return (
         <div>
 
@@ -54,7 +55,7 @@ const Search = () => {
 
             </div>
 
-            <div className={css.movies}>{movies.map(movie => <Movie key={movie.id} movie={movie}/>
+            <div className={(checked ? darkTheme : lightTheme)}>{movies.map(movie => <Movie key={movie.id} movie={movie}/>
             )}</div>
         </div>
     );

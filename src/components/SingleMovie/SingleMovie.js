@@ -10,7 +10,7 @@ import Stars from "../Stars/Stars";
 
 const SingleMovie = () => {
 
-    const {movie} = useSelector(state => state.movies)
+    const {movie, checked} = useSelector(state => state.movies)
     // useSelector(state => console.log(state))
     const dispatch = useDispatch()
     const {id} = useParams()
@@ -20,14 +20,14 @@ const SingleMovie = () => {
         dispatch(movieActions.getSingleMovie(id))
     }, [id])
 
-    const toggle = false
+
 
     const lightTheme = css.main;
     const darkTheme = css.mainDark;
 
     return (
 
-        <div className={(toggle ? darkTheme : lightTheme)}>
+        <div className={(checked ? darkTheme : lightTheme)}>
 
 
             {/*{id}*/}

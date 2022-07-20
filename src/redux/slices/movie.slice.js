@@ -10,7 +10,7 @@ const initialState = {
     // page:null,
     genre:null,
     totalPages:null,
-    checked:'false',
+    checked:false,
 };
 
 const getAll = createAsyncThunk(
@@ -73,9 +73,10 @@ const movieSlice = createSlice({
     name:'movieSlice',
     initialState,
     reducers:{
-        changeToggle:(state,)=>{
+        changeToggle:(state,action)=>{
+
             state.checked = action.payload
-            console.log('state.checked',state.checked);
+
         }
     },
     extraReducers:{
@@ -123,14 +124,16 @@ const movieSlice = createSlice({
 })
 
 
-const {reducer:movieReducer, actions}=movieSlice;
+const {reducer:movieReducer, actions:{changeToggle}}=movieSlice;
 
 const movieActions={
     getAll,
     searchFilm,
     getAllGenres,
     getSingleMovie,
-    getMoviesWithGenre
+    getMoviesWithGenre,
+    changeToggle
+
 
 
 
@@ -138,6 +141,5 @@ const movieActions={
 
 export {
     movieReducer,
-    movieActions,
-    actions
+    movieActions
 }

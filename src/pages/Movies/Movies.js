@@ -8,7 +8,7 @@ import {useSearchParams} from "react-router-dom";
 import {Button} from "react-bootstrap";
 
 const Movies = () => {
-    const {movies} = useSelector(state => state.movies)
+    const {movies, checked} = useSelector(state => state.movies)
     const dispatch = useDispatch()
 
     const [params, setParams] = useSearchParams({page: '1'})
@@ -39,6 +39,9 @@ const Movies = () => {
             setParams(paramObj)
         }
     }
+
+    const lightTheme = css.movies;
+    const darkTheme = css.moviesDark;
     return (
         // <div className={'bg-dark text-white'}>   for dark theme
         //
@@ -49,7 +52,7 @@ const Movies = () => {
                 <h5 className={'page-item disabled'}> Page: {page}</h5>
                 <Button className={'page-item'} onClick={() => nextPage()}> {`>>`}</Button>
             </div>
-            <div className={css.movies}>{movies.map(movie => (<Movie key={movie.id} movie={movie}/>)
+            <div className={(checked ? darkTheme : lightTheme)}>{movies.map(movie => (<Movie key={movie.id} movie={movie}/>)
             )}</div>
 
         </div>
