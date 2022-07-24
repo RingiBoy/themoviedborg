@@ -6,10 +6,9 @@ import Genre from "../Genre/Genre";
 
 
 const Genres = () => {
-    const {genres}=useSelector(state => state.movies)
+    const {genres}=useSelector(state => state.movies);
 
-   // useSelector(state => console.log( 'componentGenres',state.movies.genres.genres)  )
-    const dispatch = useDispatch()
+      const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(movieActions.getAllGenres())

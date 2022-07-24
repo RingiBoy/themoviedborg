@@ -7,7 +7,6 @@ const initialState = {
     status:null,
     genres:[],
     movie:{},
-    // page:null,
     genre:null,
     totalPages:null,
     checked:false,
@@ -85,10 +84,10 @@ const movieSlice = createSlice({
             state.status= 'loading'
         },
         [getAll.fulfilled]:(state, action)=>{
-
             state.movies= action.payload.results
             state.status= 'update'
-        },[getAll.rejected]:(state)=>{
+        },
+        [getAll.rejected]:(state)=>{
             state.status= 'error'
         },
 
@@ -110,14 +109,10 @@ const movieSlice = createSlice({
         },
 
         [getSingleMovie.fulfilled]:(state, action)=>{
-
             state.movie= action.payload
-
-
         },
         [getSingleMovie.rejected]:(state)=>{
             state.status= 'error'
-
         }
 
     }
