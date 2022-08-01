@@ -7,9 +7,7 @@ const movieService = {
             language,
             page,
             with_genres
-
-
-        }
+            }
     }),
     getAllGenres: () => axiosService.get(urls.genres),
 
@@ -25,8 +23,7 @@ const movieService = {
             language
         }
     })
-    // ,
-    // getMovieWithGenre: (id) => axiosService.get(`${urls.withGenres}/${id}`)
+    
 }
 
 

@@ -50,5 +50,3 @@ const Movie = ({
 };
 
 export default Movie;
-
-// https://www.themoviedb.org/t/p/w440_and_h660_face/w2loOtr8rYmIh13xyKCYdWHu58F.jpg
