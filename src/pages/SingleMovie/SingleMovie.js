@@ -4,8 +4,8 @@ import {useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {movieActions} from "../../redux/slices/movie.slice";
 import css from "./SingleMovie.module.css"
-import Genre from "../Genre/Genre";
-import Stars from "../Stars/Stars";
+import Genre from "../../components/Genre/Genre";
+import Stars from "../../components/Stars/Stars";
 
 
 const SingleMovie = () => {

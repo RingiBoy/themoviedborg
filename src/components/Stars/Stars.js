@@ -2,11 +2,13 @@ import React from 'react';
 import {Rating} from 'react-simple-star-rating'
 
 const Stars = ({vote_average}) => {
-    const rating = (vote_average)*10
+
+
+    const rating = Math.round(vote_average*10)/10
     return (
         <div style={{padding:5}}>
             <Rating
-                ratingValue={rating}
+                ratingValue={((vote_average)*10)}
                 size={25}
                 tooltipDefaultText={'n/a'}
                 fillColor='green'
@@ -16,7 +18,9 @@ const Stars = ({vote_average}) => {
 
                 // className='foo' // Will remove the inline style if applied
             />
-            {vote_average}
+            {rating}
+
+
         </div>
     );
 };

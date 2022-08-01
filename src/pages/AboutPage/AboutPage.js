@@ -3,7 +3,8 @@ import React from 'react';
 const AboutPage = () => {
     return (
         <div>
-            AboutPage
+           <div>project moviedb API by:</div>
+            <div>Grebin` Dmytro</div>
         </div>
     );
 };

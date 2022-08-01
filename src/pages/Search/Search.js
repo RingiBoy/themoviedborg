@@ -51,6 +51,7 @@ const Search = () => {
             <div className={css.buttonPagination}>
                 <Button className={'page-item'} onClick={() => prevPage()}> {`<<`} </Button>
                 <h5 className={'page-item disabled'}> Page: {page}</h5>
+
                 <Button className={'page-item'} onClick={() => nextPage()}> {`>>`}</Button>
 
             </div>
