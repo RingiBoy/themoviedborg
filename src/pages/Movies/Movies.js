@@ -43,10 +43,8 @@ const Movies = () => {
     const lightTheme = css.movies;
     const darkTheme = css.moviesDark;
     return (
-        // <div className={'bg-dark text-white'}>   for dark theme
-        //
+       
         <div>
-
             <div className={css.buttonPagination}>
                 <Button className={'page-item '} onClick={() => prevPage()}> {`<<`} </Button>
                 <h5 className={'page-item disabled'}> Page: {page}</h5>

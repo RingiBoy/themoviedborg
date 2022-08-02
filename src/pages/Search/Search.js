@@ -38,6 +38,7 @@ const Search = () => {
 
     const prevPage = () => {
         const paramsObj = Object.fromEntries(params.entries());
+        
         if (paramsObj.page && paramsObj.page !== '1') {
             paramsObj.page--
             setParams(paramsObj)
