@@ -1,11 +1,12 @@
 import React, {useEffect} from 'react';
+import {useSearchParams} from "react-router-dom";
+import {Button} from "react-bootstrap";
 import {useDispatch, useSelector} from "react-redux";
 
 import Movie from "../../components/Movie/Movie";
 import {movieActions} from "../../redux/slices/movie.slice";
 import css from "./Movies.module.css"
-import {useSearchParams} from "react-router-dom";
-import {Button} from "react-bootstrap";
+
 
 const Movies = () => {
     const {movies, checked} = useSelector(state => state.movies)

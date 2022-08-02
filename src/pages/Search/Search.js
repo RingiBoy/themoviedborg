@@ -1,10 +1,11 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {useSearchParams} from "react-router-dom";
+import {Button} from "react-bootstrap";
+
 import {movieActions} from "../../redux/slices/movie.slice";
 import css from "../Movies/Movies.module.css";
 import Movie from "../../components/Movie/Movie";
-import {Button} from "react-bootstrap";
 
 
 const Search = () => {
@@ -38,7 +39,7 @@ const Search = () => {
 
     const prevPage = () => {
         const paramsObj = Object.fromEntries(params.entries());
-        
+
         if (paramsObj.page && paramsObj.page !== '1') {
             paramsObj.page--
             setParams(paramsObj)
